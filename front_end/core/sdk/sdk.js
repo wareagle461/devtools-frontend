@@ -536,6 +536,7 @@ var generatedProperties = [
       "float",
       "flood-color",
       "flood-opacity",
+      "flow-tolerance",
       "font-display",
       "font-family",
       "font-feature-settings",
@@ -567,7 +568,7 @@ var generatedProperties = [
       "grid-column-end",
       "grid-column-start",
       "grid-lanes-direction",
-      "grid-lanes-fill",
+      "grid-lanes-pack",
       "grid-row-end",
       "grid-row-start",
       "grid-template-areas",
@@ -594,7 +595,6 @@ var generatedProperties = [
       "interest-delay-start",
       "interpolate-size",
       "isolation",
-      "item-tolerance",
       "justify-content",
       "justify-items",
       "justify-self",
@@ -666,12 +666,10 @@ var generatedProperties = [
       "overflow-y",
       "overlay",
       "override-colors",
-      "overscroll-area",
       "overscroll-behavior-block",
       "overscroll-behavior-inline",
       "overscroll-behavior-x",
       "overscroll-behavior-y",
-      "overscroll-position",
       "pad",
       "padding-block-end",
       "padding-block-start",
@@ -682,6 +680,7 @@ var generatedProperties = [
       "padding-right",
       "padding-top",
       "page",
+      "page-margin-safety",
       "page-orientation",
       "paint-order",
       "pathname",
@@ -809,11 +808,11 @@ var generatedProperties = [
       "text-wrap-mode",
       "text-wrap-style",
       "timeline-scope",
-      "timeline-trigger-exit-range-end",
-      "timeline-trigger-exit-range-start",
+      "timeline-trigger-active-range-end",
+      "timeline-trigger-active-range-start",
+      "timeline-trigger-entry-range-end",
+      "timeline-trigger-entry-range-start",
       "timeline-trigger-name",
-      "timeline-trigger-range-end",
-      "timeline-trigger-range-start",
       "timeline-trigger-source",
       "top",
       "touch-action",
@@ -2372,6 +2371,13 @@ var generatedProperties = [
     "name": "flood-opacity"
   },
   {
+    "keywords": [
+      "normal",
+      "infinite"
+    ],
+    "name": "flow-tolerance"
+  },
+  {
     "inherited": true,
     "longhands": [
       "font-style",
@@ -2736,33 +2742,26 @@ var generatedProperties = [
     "longhands": [
       "grid-template-areas",
       "grid-template-columns",
-      "grid-lanes-direction",
-      "grid-lanes-fill"
+      "grid-lanes-direction"
     ],
     "name": "grid-lanes"
   },
   {
     "keywords": [
+      "normal",
       "row",
-      "row-reverse",
       "column",
-      "column-reverse"
+      "fill-reverse",
+      "track-reverse"
     ],
     "name": "grid-lanes-direction"
   },
   {
     "keywords": [
       "normal",
-      "reverse"
+      "dense"
     ],
-    "name": "grid-lanes-fill"
-  },
-  {
-    "longhands": [
-      "grid-lanes-direction",
-      "grid-lanes-fill"
-    ],
-    "name": "grid-lanes-flow"
+    "name": "grid-lanes-pack"
   },
   {
     "longhands": [
@@ -2950,13 +2949,6 @@ var generatedProperties = [
       "isolate"
     ],
     "name": "isolation"
-  },
-  {
-    "keywords": [
-      "normal",
-      "infinite"
-    ],
-    "name": "item-tolerance"
   },
   {
     "name": "justify-content"
@@ -3491,12 +3483,6 @@ var generatedProperties = [
     "name": "override-colors"
   },
   {
-    "keywords": [
-      "none"
-    ],
-    "name": "overscroll-area"
-  },
-  {
     "longhands": [
       "overscroll-behavior-x",
       "overscroll-behavior-y"
@@ -3524,12 +3510,6 @@ var generatedProperties = [
       "none"
     ],
     "name": "overscroll-behavior-y"
-  },
-  {
-    "keywords": [
-      "none"
-    ],
-    "name": "overscroll-position"
   },
   {
     "name": "pad"
@@ -3604,6 +3584,14 @@ var generatedProperties = [
       "break-inside"
     ],
     "name": "page-break-inside"
+  },
+  {
+    "keywords": [
+      "none",
+      "clamp",
+      "add"
+    ],
+    "name": "page-margin-safety"
   },
   {
     "name": "page-orientation"
@@ -4655,41 +4643,41 @@ var generatedProperties = [
     "longhands": [
       "timeline-trigger-name",
       "timeline-trigger-source",
-      "timeline-trigger-range-start",
-      "timeline-trigger-range-end",
-      "timeline-trigger-exit-range-start",
-      "timeline-trigger-exit-range-end"
+      "timeline-trigger-entry-range-start",
+      "timeline-trigger-entry-range-end",
+      "timeline-trigger-active-range-start",
+      "timeline-trigger-active-range-end"
     ],
     "name": "timeline-trigger"
   },
   {
     "longhands": [
-      "timeline-trigger-exit-range-start",
-      "timeline-trigger-exit-range-end"
+      "timeline-trigger-active-range-start",
+      "timeline-trigger-active-range-end"
     ],
-    "name": "timeline-trigger-exit-range"
+    "name": "timeline-trigger-active-range"
   },
   {
-    "name": "timeline-trigger-exit-range-end"
+    "name": "timeline-trigger-active-range-end"
   },
   {
-    "name": "timeline-trigger-exit-range-start"
-  },
-  {
-    "name": "timeline-trigger-name"
+    "name": "timeline-trigger-active-range-start"
   },
   {
     "longhands": [
-      "timeline-trigger-range-start",
-      "timeline-trigger-range-end"
+      "timeline-trigger-entry-range-start",
+      "timeline-trigger-entry-range-end"
     ],
-    "name": "timeline-trigger-range"
+    "name": "timeline-trigger-entry-range"
   },
   {
-    "name": "timeline-trigger-range-end"
+    "name": "timeline-trigger-entry-range-end"
   },
   {
-    "name": "timeline-trigger-range-start"
+    "name": "timeline-trigger-entry-range-start"
+  },
+  {
+    "name": "timeline-trigger-name"
   },
   {
     "keywords": [
@@ -5909,6 +5897,12 @@ var generatedPropertyValues = {
       "currentcolor"
     ]
   },
+  "flow-tolerance": {
+    "values": [
+      "normal",
+      "infinite"
+    ]
+  },
   "font-feature-settings": {
     "values": [
       "normal"
@@ -6133,16 +6127,17 @@ var generatedPropertyValues = {
   },
   "grid-lanes-direction": {
     "values": [
+      "normal",
       "row",
-      "row-reverse",
       "column",
-      "column-reverse"
+      "fill-reverse",
+      "track-reverse"
     ]
   },
-  "grid-lanes-fill": {
+  "grid-lanes-pack": {
     "values": [
       "normal",
-      "reverse"
+      "dense"
     ]
   },
   "grid-row-end": {
@@ -6227,12 +6222,6 @@ var generatedPropertyValues = {
     "values": [
       "auto",
       "isolate"
-    ]
-  },
-  "item-tolerance": {
-    "values": [
-      "normal",
-      "infinite"
     ]
   },
   "left": {
@@ -6536,11 +6525,6 @@ var generatedPropertyValues = {
       "auto"
     ]
   },
-  "overscroll-area": {
-    "values": [
-      "none"
-    ]
-  },
   "overscroll-behavior-x": {
     "values": [
       "auto",
@@ -6555,14 +6539,16 @@ var generatedPropertyValues = {
       "none"
     ]
   },
-  "overscroll-position": {
-    "values": [
-      "none"
-    ]
-  },
   "page": {
     "values": [
       "auto"
+    ]
+  },
+  "page-margin-safety": {
+    "values": [
+      "none",
+      "clamp",
+      "add"
     ]
   },
   "paint-order": {
@@ -10600,6 +10586,9 @@ var NetworkManager = class _NetworkManager extends SDKModel {
   async enableReportingApi(enable = true) {
     return await this.#networkAgent.invoke_enableReportingApi({ enable });
   }
+  async enableDeviceBoundSessions(enable = true) {
+    return await this.#networkAgent.invoke_enableDeviceBoundSessions({ enable });
+  }
   async loadNetworkResource(frameId, url, options) {
     const result = await this.#networkAgent.invoke_loadNetworkResource({ frameId: frameId ?? void 0, url, options });
     if (result.getError()) {
@@ -10624,6 +10613,8 @@ var Events2;
   Events12["ReportingApiReportAdded"] = "ReportingApiReportAdded";
   Events12["ReportingApiReportUpdated"] = "ReportingApiReportUpdated";
   Events12["ReportingApiEndpointsChangedForOrigin"] = "ReportingApiEndpointsChangedForOrigin";
+  Events12["DeviceBoundSessionsAdded"] = "DeviceBoundSessionsAdded";
+  Events12["DeviceBoundSessionEventOccurred"] = "DeviceBoundSessionEventOccurred";
 })(Events2 || (Events2 = {}));
 var BlockingConditions = {
   key: "BLOCKING",
@@ -11481,6 +11472,10 @@ var NetworkDispatcher = class {
     this.#manager.dispatchEventToListeners(Events2.ReportingApiEndpointsChangedForOrigin, data);
   }
   deviceBoundSessionsAdded(_params) {
+    this.#manager.dispatchEventToListeners(Events2.DeviceBoundSessionsAdded, _params.sessions);
+  }
+  deviceBoundSessionEventOccurred(_params) {
+    this.#manager.dispatchEventToListeners(Events2.DeviceBoundSessionEventOccurred, _params);
   }
   policyUpdated() {
   }
@@ -11756,9 +11751,9 @@ var RequestConditions = class extends Common5.ObjectWrapper.ObjectWrapper {
             matchedNetworkConditions.push({ ruleIds, urlPattern, conditions });
           }
         }
-        if (globalConditions) {
-          matchedNetworkConditions.push({ conditions: globalConditions });
-        }
+      }
+      if (globalConditions) {
+        matchedNetworkConditions.push({ conditions: globalConditions });
       }
       const promises = [];
       for (const agent of agents) {
@@ -24752,6 +24747,7 @@ var DOMNode = class _DOMNode extends Common21.ObjectWrapper.ObjectWrapper {
     this.#isInShadowTree = isInShadowTree;
     this.id = payload.nodeId;
     this.#backendNodeId = payload.backendNodeId;
+    this.#frameOwnerFrameId = payload.frameId || null;
     this.#domModel.registerNode(this);
     this.#nodeType = payload.nodeType;
     this.#nodeName = payload.nodeName;
@@ -24760,7 +24756,6 @@ var DOMNode = class _DOMNode extends Common21.ObjectWrapper.ObjectWrapper {
     this.#pseudoType = payload.pseudoType;
     this.#pseudoIdentifier = payload.pseudoIdentifier;
     this.#shadowRootType = payload.shadowRootType;
-    this.#frameOwnerFrameId = payload.frameId || null;
     this.#xmlVersion = payload.xmlVersion;
     this.#isSVGNode = Boolean(payload.isSVG);
     this.#isScrollable = Boolean(payload.isScrollable);
@@ -25356,7 +25351,7 @@ var DOMNode = class _DOMNode extends Common21.ObjectWrapper.ObjectWrapper {
     }
   }
   toAdoptedStyleSheets(ids) {
-    return ids.map((id) => new AdoptedStyleSheet(id, this.#domModel.cssModel()));
+    return ids.map((id) => new AdoptedStyleSheet(id, this));
   }
   setAdoptedStyleSheets(ids) {
     this.#adoptedStyleSheets = this.toAdoptedStyleSheets(ids);
@@ -25684,15 +25679,19 @@ var DOMDocument = class extends DOMNode {
 };
 var AdoptedStyleSheet = class {
   id;
-  cssModel;
-  constructor(id, cssModel) {
+  parent;
+  constructor(id, parent) {
     this.id = id;
-    this.cssModel = cssModel;
+    this.parent = parent;
+  }
+  get cssModel() {
+    return this.parent.domModel().cssModel();
   }
 };
 var DOMModel = class _DOMModel extends SDKModel {
   agent;
   idToDOMNode = /* @__PURE__ */ new Map();
+  frameIdToOwnerNode = /* @__PURE__ */ new Map();
   #document = null;
   #attributeLoadNodeIds = /* @__PURE__ */ new Set();
   runtimeModelInternal;
@@ -25703,11 +25702,14 @@ var DOMModel = class _DOMModel extends SDKModel {
   #searchId;
   #topLayerThrottler = new Common21.Throttler.Throttler(100);
   #topLayerNodes = [];
+  #resourceTreeModel = null;
   constructor(target) {
     super(target);
     this.agent = target.domAgent();
     target.registerDOMDispatcher(new DOMDispatcher(this));
     this.runtimeModelInternal = target.model(RuntimeModel);
+    this.#resourceTreeModel = target.model(ResourceTreeModel);
+    this.#resourceTreeModel?.addEventListener(Events3.DocumentOpened, this.onDocumentOpened, this);
     if (!target.suspended()) {
       void this.agent.invoke_enable({});
     }
@@ -25740,6 +25742,18 @@ var DOMModel = class _DOMModel extends SDKModel {
         return;
       }
       this.dispatchEventToListeners(Events8.DOMMutated, node2);
+    }
+  }
+  onDocumentOpened(event) {
+    const frame = event.data;
+    const node = this.frameIdToOwnerNode.get(frame.id);
+    if (node) {
+      const contentDocument = node.contentDocument();
+      if (contentDocument && contentDocument.documentURL !== frame.url) {
+        contentDocument.documentURL = frame.url;
+        contentDocument.baseURL = frame.url;
+        this.dispatchEventToListeners(Events8.DocumentURLChanged, contentDocument);
+      }
     }
   }
   requestDocument() {
@@ -25887,6 +25901,7 @@ var DOMModel = class _DOMModel extends SDKModel {
   }
   setDocument(payload) {
     this.idToDOMNode = /* @__PURE__ */ new Map();
+    this.frameIdToOwnerNode = /* @__PURE__ */ new Map();
     if (payload && "nodeId" in payload) {
       this.#document = new DOMDocument(this, payload);
     } else {
@@ -26046,6 +26061,10 @@ var DOMModel = class _DOMModel extends SDKModel {
   }
   unbind(node) {
     this.idToDOMNode.delete(node.id);
+    const frameId = node.frameOwnerFrameId();
+    if (frameId) {
+      this.frameIdToOwnerNode.delete(frameId);
+    }
     const children = node.children();
     for (let i = 0; children && i < children.length; ++i) {
       this.unbind(children[i]);
@@ -26198,6 +26217,7 @@ var DOMModel = class _DOMModel extends SDKModel {
     await this.agent.invoke_enable({});
   }
   dispose() {
+    this.#resourceTreeModel?.removeEventListener(Events3.DocumentOpened, this.onDocumentOpened, this);
     DOMModelUndoStack.instance().dispose(this);
   }
   parentModel() {
@@ -26209,6 +26229,10 @@ var DOMModel = class _DOMModel extends SDKModel {
   }
   registerNode(node) {
     this.idToDOMNode.set(node.id, node);
+    const frameId = node.frameOwnerFrameId();
+    if (frameId) {
+      this.frameIdToOwnerNode.set(frameId, node);
+    }
   }
 };
 var Events8;
@@ -26217,6 +26241,7 @@ var Events8;
   Events12["AttrRemoved"] = "AttrRemoved";
   Events12["CharacterDataModified"] = "CharacterDataModified";
   Events12["DOMMutated"] = "DOMMutated";
+  Events12["DocumentURLChanged"] = "DocumentURLChanged";
   Events12["NodeInserted"] = "NodeInserted";
   Events12["NodeRemoved"] = "NodeRemoved";
   Events12["DocumentUpdated"] = "DocumentUpdated";
@@ -26800,10 +26825,13 @@ var ResourceTreeModel = class _ResourceTreeModel extends SDKModel {
   documentOpened(framePayload) {
     this.frameNavigated(framePayload, void 0);
     const frame = this.framesInternal.get(framePayload.id);
-    if (frame && !frame.getResourcesMap().get(framePayload.url)) {
-      const frameResource = this.createResourceFromFramePayload(framePayload, framePayload.url, Common24.ResourceType.resourceTypes.Document, framePayload.mimeType, null, null);
-      frameResource.isGenerated = true;
-      frame.addResource(frameResource);
+    if (frame) {
+      this.dispatchEventToListeners(Events3.DocumentOpened, frame);
+      if (!frame.getResourcesMap().get(framePayload.url)) {
+        const frameResource = this.createResourceFromFramePayload(framePayload, framePayload.url, Common24.ResourceType.resourceTypes.Document, framePayload.mimeType, null, null);
+        frameResource.isGenerated = true;
+        frame.addResource(frameResource);
+      }
     }
   }
   frameDetached(frameId, isSwap) {
@@ -27082,6 +27110,7 @@ var Events3;
   Events12["FrameDetached"] = "FrameDetached";
   Events12["FrameResized"] = "FrameResized";
   Events12["FrameWillNavigate"] = "FrameWillNavigate";
+  Events12["DocumentOpened"] = "DocumentOpened";
   Events12["PrimaryPageChanged"] = "PrimaryPageChanged";
   Events12["ResourceAdded"] = "ResourceAdded";
   Events12["WillLoadCachedResources"] = "WillLoadCachedResources";

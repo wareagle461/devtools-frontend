@@ -392,6 +392,9 @@ export const generatedPropertyValues: {
     "flood-color": {
         values: string[];
     };
+    "flow-tolerance": {
+        values: string[];
+    };
     "font-feature-settings": {
         values: string[];
     };
@@ -479,7 +482,7 @@ export const generatedPropertyValues: {
     "grid-lanes-direction": {
         values: string[];
     };
-    "grid-lanes-fill": {
+    "grid-lanes-pack": {
         values: string[];
     };
     "grid-row-end": {
@@ -522,9 +525,6 @@ export const generatedPropertyValues: {
         values: string[];
     };
     isolation: {
-        values: string[];
-    };
-    "item-tolerance": {
         values: string[];
     };
     left: {
@@ -665,19 +665,16 @@ export const generatedPropertyValues: {
     overlay: {
         values: string[];
     };
-    "overscroll-area": {
-        values: string[];
-    };
     "overscroll-behavior-x": {
         values: string[];
     };
     "overscroll-behavior-y": {
         values: string[];
     };
-    "overscroll-position": {
+    page: {
         values: string[];
     };
-    page: {
+    "page-margin-safety": {
         values: string[];
     };
     "paint-order": {

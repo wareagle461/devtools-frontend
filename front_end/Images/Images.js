@@ -173,6 +173,7 @@ style.setProperty('--image-file-gears', 'url(\"' + new URL(new URL('gears.svg', 
 style.setProperty('--image-file-global', 'url(\"' + new URL(new URL('global.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-google', 'url(\"' + new URL(new URL('google.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-goto-filled', 'url(\"' + new URL(new URL('goto-filled.svg', import.meta.url).href).toString() + '\")');
+style.setProperty('--image-file-grid-direction', 'url(\"' + new URL(new URL('grid-direction.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-grid-on', 'url(\"' + new URL(new URL('grid-on.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-group', 'url(\"' + new URL(new URL('group.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-heap-snapshot', 'url(\"' + new URL(new URL('heap-snapshot.svg', import.meta.url).href).toString() + '\")');
@@ -218,6 +219,7 @@ style.setProperty('--image-file-lightbulb', 'url(\"' + new URL(new URL('lightbul
 style.setProperty('--image-file-lighthouse_logo', 'url(\"' + new URL(new URL('lighthouse_logo.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-list', 'url(\"' + new URL(new URL('list.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-location-on', 'url(\"' + new URL(new URL('location-on.svg', import.meta.url).href).toString() + '\")');
+style.setProperty('--image-file-lock-person', 'url(\"' + new URL(new URL('lock-person.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-lock', 'url(\"' + new URL(new URL('lock.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-mark-email-unread', 'url(\"' + new URL(new URL('mark-email-unread.svg', import.meta.url).href).toString() + '\")');
 style.setProperty('--image-file-match-case', 'url(\"' + new URL(new URL('match-case.svg', import.meta.url).href).toString() + '\")');

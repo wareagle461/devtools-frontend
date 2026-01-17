@@ -413,6 +413,9 @@ var InspectorFrontendHostStub = class {
   setInjectedScriptForOrigin(_origin, _script) {
   }
   inspectedURLChanged(url) {
+    if (!("document" in globalThis)) {
+      return;
+    }
     document.title = i18nString2(UIStrings2.devtoolsS, { PH1: url.replace(/^https?:\/\//, "") });
   }
   copyText(text) {
@@ -1803,6 +1806,18 @@ var UserMetrics = class {
   }
   consoleInsightTeaserFirstChunkGenerated(timeInMilliseconds) {
     InspectorFrontendHostInstance.recordPerformanceHistogram("DevTools.Insights.TeaserFirstChunkGenerationTime", timeInMilliseconds);
+  }
+  consoleInsightTeaserAbortedAfterFirstCharacter(timeInMilliseconds) {
+    InspectorFrontendHostInstance.recordPerformanceHistogram("DevTools.Insights.TeaserAfterFirstCharacterAbortionTime", timeInMilliseconds);
+  }
+  consoleInsightTeaserAbortedBeforeFirstCharacter(timeInMilliseconds) {
+    InspectorFrontendHostInstance.recordPerformanceHistogram("DevTools.Insights.TeaserBeforeFirstCharacterAbortionTime", timeInMilliseconds);
+  }
+  consoleInsightLongTeaserGenerated(timeInMilliseconds) {
+    InspectorFrontendHostInstance.recordPerformanceHistogram("DevTools.Insights.LongTeaserGenerationTime", timeInMilliseconds);
+  }
+  consoleInsightShortTeaserGenerated(timeInMilliseconds) {
+    InspectorFrontendHostInstance.recordPerformanceHistogram("DevTools.Insights.ShortTeaserGenerationTime", timeInMilliseconds);
   }
 };
 var Action;

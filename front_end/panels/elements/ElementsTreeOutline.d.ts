@@ -17,6 +17,7 @@ interface ViewInput {
     preventTabOrder: boolean;
     deindentSingleNode: boolean;
     currentHighlightedNode: SDK.DOMModel.DOMNode | null;
+    selectedNode: SDK.DOMModel.DOMNode | null;
     onSelectedNodeChanged: (event: Common.EventTarget.EventTargetEvent<{
         node: SDK.DOMModel.DOMNode | null;
         focus: boolean;
@@ -59,7 +60,7 @@ export declare class DOMTreeWidget extends UI.Widget.Widget {
     set rootDOMNode(node: SDK.DOMModel.DOMNode | null);
     get rootDOMNode(): SDK.DOMModel.DOMNode | null;
     constructor(element?: HTMLElement, view?: View);
-    selectDOMNode(node: SDK.DOMModel.DOMNode | null, focus?: boolean): void;
+    selectDOMNode(node: SDK.DOMModel.DOMNode | SDK.DOMModel.AdoptedStyleSheet | null, focus?: boolean): void;
     highlightNodeAttribute(node: SDK.DOMModel.DOMNode, attribute: string): void;
     setWordWrap(wrap: boolean): void;
     selectedDOMNode(): SDK.DOMModel.DOMNode | null;
@@ -163,6 +164,7 @@ export declare class ElementsTreeOutline extends ElementsTreeOutline_base {
     get isXMLMimeType(): boolean;
     selectedDOMNode(): SDK.DOMModel.DOMNode | null;
     selectDOMNode(node: SDK.DOMModel.DOMNode | null, focus?: boolean): void;
+    highlightAdoptedStyleSheet(adoptedStyleSheet: SDK.DOMModel.AdoptedStyleSheet): void;
     editing(): boolean;
     update(): void;
     selectedNodeChanged(focus: boolean): void;
@@ -211,6 +213,7 @@ export declare class ElementsTreeOutline extends ElementsTreeOutline_base {
     private attributeModified;
     private attributeRemoved;
     private characterDataModified;
+    private documentURLChanged;
     private nodeInserted;
     private nodeRemoved;
     private childNodeCountUpdated;
