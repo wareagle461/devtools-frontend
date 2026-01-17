@@ -25,13 +25,15 @@ devtools_entrypoint("bundle") {
 
   visibility = [
     ":*",
+    "../../../mcp/*",
     "../../entrypoints/main",
     "../../panels/timeline/*",
+    "../ai_assistance/*",
     "../trace/*",
   ]
 }
 
-ts_library("unittests") {
+devtools_foundation_module("foundation_unittests") {
   testonly = true
 
   sources = [ "CrUXManager.test.ts" ]
